@@ -1,0 +1,93 @@
+html {
+    height: 100vh;
+    min-width: 600px;
+}
+
+.container {
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    font-family: 'Rale';
+    background-color: aquamarine;
+}
+
+form {
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    
+    background-color: aliceblue;
+}
+
+input[type="text"] {
+    height: 30px;
+    outline: 0;
+    border: none;
+    font-size: 1rem;
+    font-family: 'Relway', sans-serif;
+    flex-grow: 1;
+}
+
+button {
+    font-size: 1.5 rem;
+    background-color: white;
+    outline: 0;
+    border: none;
+}
+
+button:hover {
+    color: coral;
+}
+
+.todoList {
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 30px;
+    padding: 10px 25px;
+    height: 100%;
+}
+
+ul {
+    padding-left: 0px;
+    list-style: none;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid lightgrey;
+    padding: 15px 0px;
+    font-size: 1rem;
+    color: #595959;
+}
+
+#buttonLayout {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#clearButton {
+    
+}
+/* 
+#clearButton:hover {
+} */
+
+.task-item {
+    flex-grow: 1;
+}
+
+i {
+    pointer-events: none;
+}
+
+.task-list-item {
+    transition: all 0.3s ease-out;
+}
+
+.task-list-item-fall {
+    transform: translateY(12rem) rotateZ(10deg);
+    opacity: 0;
+}
