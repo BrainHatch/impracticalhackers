@@ -13,6 +13,9 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Add the stylesheet to the head -->
     <link rel="stylesheet" type="text/css" href="clippy.css" media="all">
+
+    <!-- Make sure this file is available for the user -->
+    <link rel="icon" type="image/png" href="./resources/images/brainhatch_favicon.png">
 </head>
 
 
@@ -42,33 +45,145 @@
             <!-- Make sure autoplay is enabled -->
             <div class="embed-responsive embed-responsive-16by9">
                 <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0"
-                    allowfullscreen></iframe>
+                    allowfullscreen allow="autoplay"></iframe>
             </div>
+            <!-- <div id="player"></div> -->
 
+            <br>
             <p class="lead">
-                <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+                <a href="#" id="replay" class="btn btn-lg btn-secondary">Learn more</a>
             </p>
         </main>
 
-        <footer class="mastfoot mt-auto">
-            <div class="inner">
-                <p>by <a href="https://github.com/BrainHatch">@BrainHatch</a>.</p>
+
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input id="email_Input" type="email" class="form-control" id="exampleFormControlInput1"
+                    placeholder="name@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">What do you need help with??</label>
+                <textarea id="help_daddy" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+
+            <button id="submit_button" onclick="submitPlease()" class="btn btn-primary">Submit</button>
+
+            <!-- 
+            <div class="container-fluid">
+                <div class="row"
+                    style="background:transparent url('./resources/images/spongebob.jpg') no-repeat center center /cover">
+                    <div class="col-lg">
+                        <div class="intro-text">
+                            <span class="name">HEADING</span>
+                            <hr class="star-light">
+                            <span class="skills">TEXT</span>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+        </div>
+
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+
+            <p id="top_meme" class="font-weight-bold" style="display: none;">Bold text.</p>
+
+            <img id="spongebob" src="/resources/images/spongebob.jpg" class="img-fluid" alt="Responsive image"
+                width="500" height="600" style="display: none;">
+
+            <p id="bottom_meme" class="font-weight-bold" style="display: none;">Bold text.</p>
+
+        </div>
+
+        <footer id="footer" class="footer">
+            <div class="container">
+                <span class="text-muted">By<a target="_blank"
+                        href="https://github.com/BrainHatch/ImpracticalHackers">@BrainHatch</a>. Powered by Microsoft
+                    Paint </span>
+                <p></p>
             </div>
         </footer>
     </div>
 
+    <!-- jQuery 3.5.1 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
 
-    <script>
-        // document.querySelector('#video').autoplay = true;
+        function submitPlease() {
+            var spongebobImg = document.getElementById("spongebob");
+            var email = document.getElementById("email_Input");
+            var helpText = document.getElementById("help_daddy");
+            var submit_button = document.getElementById("submit_button");
+            var top_meme = document.getElementById("top_meme");
+            var bottom_meme = document.getElementById("bottom_meme");
+
+            if (spongebobImg.style.display == "none") {
+
+                spongebobImg.style.display = "inline-block";
+
+                top_meme.innerHTML = memeText(true);
+                bottom_meme.innerHTML = memeText(false);
+
+                top_meme.style.background = "rgb(255,255,255)";
+                top_meme.style.display = "inline-block";
+
+                bottom_meme.style.background = "rgb(255,255,255)";
+                bottom_meme.style.display = "inline-block";
+
+                email.value = "";
+                helpText.value = "";
+                submit_button.innerHTML = "Clear";
+            } else {
+
+                spongebobImg.style.display = "none";
+                top_meme.style.display = "none";
+                bottom_meme.style.display = "none";
+                submit_button.innerHTML = "Submit";
+
+            }
+        }
+
+        // Even the code is fuzzy 
+        function memeText(top) {
+            var helpText = document.getElementById("help_daddy");
+
+            var length = helpText.value.length;
+            var meme = "";
+            var index;
+            var max;
+
+            if (top) {
+                index = 0;
+                max = Math.floor(length / 2);
+            } else {
+                index = Math.floor(length / 2);
+                max = length;
+            }
+
+            console.log(index);
+
+            for (index; index < max; index++) {
+                console.log(meme);
+
+                if (Math.floor(Math.random() * Math.floor(2))) {
+                    meme += helpText.value.charAt(index).toUpperCase();
+                } else {
+                    meme += helpText.value.charAt(index);
+                }
+            }
+
+            return meme;
+
+        }
+
+
+
+
     </script>
+
 </body>

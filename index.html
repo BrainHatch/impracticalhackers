@@ -13,49 +13,96 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- Add the stylesheet to the head -->
     <link rel="stylesheet" type="text/css" href="/clippy/build/clippy.css" media="all">
+
+    <!-- Make sure this file is available for the user -->
+    <link rel="icon" type="image/png" href="/resources/images/brainhatch_favicon.png">
 </head>
 
-<body class="container">
+<body class="d-flex flex-column h-100">
+    <div class="container">
+        <h1 id="title">TO DON'T</h1>
 
-    <h1>HR SAYS SLEEP</h1>
-
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Task List</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="./help.html">Help</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">UML/Inspiration</a>
-        </li>
-    </ul>
-
-    <div class="main">
-        <form action="">
-            <input type="text" placeholder="Add Task ...">
-            <button type="submit">
-                <i class="fas fa-plus-square"></i>
-            </button>
-        </form>
-        <div class="todoList">
-            <ul id="taskList"></ul>
-            <div id="buttonLayout">
-                <button type="button" class="btn btn-primary" id="clearButton" onclick=clearAll()>Clear All</button>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Task List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./help.html">Help</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">UML/Inspiration</a>
+            </li>
+        </ul>
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Task List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./help.html">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">UML/Inspiration</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> -->
+        <div class="main">
+            <form action="">
+                <input type="text" placeholder="Add Task ...">
+                <button type="submit">
+                    <i class="fas fa-plus-square"></i>
+                </button>
+            </form>
+            <div class="todoList">
+                <ul id="taskList">
+                    <!-- <li class="taskItem">
+                        <span class="task-item">Do Dishes</span>
+                        <button name="checkButton" id="checkBtn"> <i class="fas fa-check-square"></i> </button>
+                        <button name="deleteButton" id="deleteBtn"> <i class="fas fa-trash"></i> </button>
+                    </li>
+                    <li class="taskItem">
+                        <span class="task-item">Do Laundry</span>
+                        <button name="checkButton" id="checkBtn"> <i class="fas fa-check-square"></i> </button>
+                        <button name="deleteButton" id="deleteBtn"> <i class="fas fa-trash"></i> </button>
+                    </li>
+                    <li class="taskItem">
+                        <span class="task-item">Finish Hackathon</span>
+                        <button name="checkButton" id="checkBtn" class="changeBackgroundToSpongebob"> <i
+                                class="fas fa-check-square"></i>
+                        </button>
+                        <button name="deleteButton" id="deleteBtn"> <i class="fas fa-trash"></i> </button>
+                    </li> -->
+                </ul>
+                <!-- <div id="buttonLayout">
+                    <button type="button" class="btn btn-primary" id="clearButton" onclick=clearAll()>Clear All</button>
+                </div> -->
             </div>
         </div>
     </div>
 
+    <div id="quote" class="container">
+        <h1 id="inspiration" class="text-center">"If you eat well, get good sleep, exercise, and drink plenty of water,
+            you'll die
+            anyway."
+        </h1>
+    </div>
 
-    <footer class="footer">
+    <footer id="footer" class="footer">
         <div class="container">
-            <span class="text-muted">Powered by Microsoft Paint</span>
+            <span class="text-muted">By<a target="_blank"
+                    href="https://github.com/BrainHatch/ImpracticalHackers">@BrainHatch</a>. Powered by Microsoft
+                Paint </span>
+            <p></p>
         </div>
     </footer>
-
 
 
     <!-- jQuery 3.5.1 -->
@@ -64,14 +111,9 @@
 
     <!-- Clippy.js -->
     <script src="/clippy/build/clippy.min.js"></script>
-    <!-- Init script -->
-    <script type="text/javascript">
-        clippy.load('Clippy', function (agent) {
-            // Do anything with the loaded agent
-            agent.show();
-        });
-    </script>
+
     <script src="index.js"></script>
+
 </body>
 
 </html>

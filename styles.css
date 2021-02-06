@@ -1,6 +1,13 @@
 html {
-    height: 100vh;
+    height: 100%;
     min-width: 600px;
+}
+
+body {
+    height: 100%;
+    background-image: url('./resources/images/2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .container {
@@ -10,7 +17,13 @@ html {
     flex-direction: column;
     margin: auto;
     font-family: 'Rale';
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+    padding-bottom: 2.5rem; 
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
 }
 
 form {
@@ -42,11 +55,15 @@ button:hover {
 }
 
 .todoList {
-    background-color: white;
+    /* background-color: white; */
     border-radius: 5px;
     margin-top: 30px;
     padding: 10px 25px;
-    height: 100%;
+    height: 500px;
+    max-height: 500px;
+    overflow:scroll;
+    overflow-y:auto;
+    overflow-x:auto;
 }
 
 ul {
@@ -54,14 +71,15 @@ ul {
     list-style: none;
 }
 
-li {
+/* li {
     display: flex;
     align-items: center;
     border-bottom: 1px solid lightgrey;
     padding: 15px 0px;
     font-size: 1rem;
     color: #595959;
-}
+    position: absolute; 
+} */
 
 #buttonLayout {
     display: flex;
@@ -74,6 +92,34 @@ li {
 /* 
 #clearButton:hover {
 } */
+
+#quote {
+    max-width: 85%;
+    font-size: xx-large;
+    font-style: italic;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    justify-content: center ;
+    color: white;
+
+}
+
+#inspiration {
+
+}
+
+.taskItem {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid lightgrey;
+    padding: 15px 0px;
+    font-size: 2rem;
+    /* color: #595959; */
+    color: white;
+    margin-top: 30px;
+    /* padding: 10px 25px;  */
+}
 
 .task-item {
     flex-grow: 1;
@@ -90,4 +136,34 @@ i {
 .task-list-item-fall {
     transform: translateY(12rem) rotateZ(10deg);
     opacity: 0;
+}
+
+#checkBtn {
+    /* position: absolute; */
+}
+
+footer {
+  /* position: absolute;
+  bottom: 0; */
+  width: 100%;
+  color: #000;
+  padding: 7px;
+  background-color: #EBECF0;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-family:'Relway', sans-serif;
+}
+.nav-link {
+    color:white;
+}
+.nav-link active {
+    color: white;
+}
+.nav-link:hover {
+    color:white;
 }
