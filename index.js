@@ -1,6 +1,8 @@
 document.querySelector('form').addEventListener('submit', handleSubmitForm);
-document.querySelector('ul').addEventListener('click', handleCheckOrDelete);
+document.getElementById('taskList').addEventListener('click', handleCheckOrDelete);
 // document.getElementById('clearAll').addEventListener('click', handleClear);
+// document.querySelector('checkBtn').addEventListener('mouseover', moveAway);
+
 
 function handleSubmitForm(e) {
     e.preventDefault();
@@ -12,7 +14,8 @@ function handleSubmitForm(e) {
 }
 
 function addTask(taskVal) {
-    let ul = document.querySelector('ul');
+    // let ul = document.querySelector('taskList');
+    let ul = document.getElementById('taskList');
     let li = document.createElement('li');
 
     li.innerHTML = `
@@ -56,4 +59,8 @@ function deleteTask(e){
  
 function clearAll() {
     document.querySelector('ul').innerHTML = '';
+}
+
+function moveOver(e) {
+
 }
