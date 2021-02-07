@@ -1,5 +1,6 @@
 html {
     height: 100%;
+    background-image: url('./resources/images/spongebob.jpg');
     min-width: 600px;
 }
 
