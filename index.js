@@ -15,6 +15,7 @@ function initializeClippy() {
     // Do anything with the loaded agent
     clippyAgent = agent;
     clippyAgent.show();
+    clippyAgent.moveTo(1300, 500);
     clippyAnimations(
       "Greeting",
       "Hi there I'm here to help!! If need any help feel free to click on me."
