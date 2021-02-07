@@ -37,30 +37,14 @@ function addTask(taskVal) {
   let li = document.createElement("li");
   li.id = "taskIdListItem";
   li.className = "taskItem";
-  // li.innerHTML = `
-  //     <span class="task-item">${taskVal}</span>
-  //     <button name="checkButton" id="checkBtn"> <i class="fas fa-check-square"></i> </button>
-  //     <button name="deleteButton" id="deleteBtn"> <i class="fas fa-trash"></i> </button>
-  // `
   trollButton = getTroll();
   li.innerHTML = `
         <span class="task-item">${taskVal}</span>
-        <button name="${trollButton.name}" id=${trollButton.id}> <i class="fas fa-check-square"></i> </button>
-        <button name="deleteButton" id="deleteBtn" data-toggle="modal" data-target="#deleteTaskModal"> <i class="fas fa-trash"></i> </button>
+        <button name="${trollButton.name}" id=${trollButton.id} class="clearBackground"> <i class="fas fa-check-square"></i> </button>
+        <button name="deleteButton" id="deleteBtn" data-toggle="modal" data-target="#deleteTaskModal" class="clearBackground"> <i class="fas fa-trash"></i> </button>
     `;
   li.classList.add("task-list-item");
-
-  // let length = getRandomInt(3) + 1;
-  // console.log(length);
-
   ul.appendChild(li);
-
-  // for(i = 0; i < length; i++) {
-  //     let item = document.getElementById('taskIdListItem');
-  //     console.log(item);
-  //     var cln = item.cloneNode(true);
-  //     ul.appendChild(cln);
-  // }
   clippyAnimations("SendMail", "You added the todo");
 }
 
