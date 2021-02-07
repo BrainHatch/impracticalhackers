@@ -19,74 +19,66 @@
 </head>
 
 
-<body class="text-center">
+<body class="d-flex flex-column h-100">
 
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./index.html">Task List</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" href="#">Help</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">UML/Inspiration</a>
-        </li>
-    </ul>
-
-    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-
-        <main role="main" class="inner cover">
-            <h1 class="cover-heading">Sike, you just got punked.</h1>
-            <p class="lead"> HAHA you thought </p>
-
-            <!-- Make sure autoplay is enabled -->
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0"
-                    allowfullscreen allow="autoplay"></iframe>
-            </div>
-            <!-- <div id="player"></div> -->
-
-            <br>
-            <p class="lead">
-                <a href="#" id="replay" class="btn btn-lg btn-secondary">Learn more</a>
-            </p>
-        </main>
+    <div class="container">
+        <br>
+        <h1 id="title">SIKE, YOU JUST GOT PUNKED.</h1>
 
 
-        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+        <ul class="nav nav-tabs">
+            <a class="navbar-brand" href="https://github.com/BrainHatch/ImpracticalHackers">
+                <img src="./resources/images/brainhatch_favicon.png" width="30" height="30"
+                    class="d-inline-block align-top" alt="">
+                BrainHatch
+            </a>
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="./index.html">Task List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Help</a>
+            </li>
+        </ul>
 
-            <div class="form-group">
-                <label for="exampleFormControlInput1">Email address</label>
-                <input id="email_Input" type="email" class="form-control" id="exampleFormControlInput1"
-                    placeholder="name@example.com">
-            </div>
+        <br>
 
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">What do you need help with??</label>
-                <textarea id="help_daddy" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
+        <div class="flex-column">
 
-            <button id="submit_button" onclick="submitPlease()" class="btn btn-primary">Submit</button>
+            <main role="main" class="inner cover">
+                <h1 class="cover-heading"></h1>
+                <p class="lead"> HAHA you thought </p>
 
-            <!-- 
-            <div class="container-fluid">
-                <div class="row"
-                    style="background:transparent url('./resources/images/spongebob.jpg') no-repeat center center /cover">
-                    <div class="col-lg">
-                        <div class="intro-text">
-                            <span class="name">HEADING</span>
-                            <hr class="star-light">
-                            <span class="skills">TEXT</span>
-                        </div>
-                    </div>
+                <!-- Make sure autoplay is enabled -->
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item"
+                        src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0" allowfullscreen
+                        allow="autoplay"></iframe>
                 </div>
-            </div> -->
+                <!-- <div id="player"></div> -->
 
+                <br>
+                <p class="lead">
+                    <a href="#" id="replay" class="btn btn-lg btn-secondary">Learn more</a>
+                </p>
+            </main>
+
+
+            <div class=" flex-column">
+
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Email address</label>
+                    <input id="email_Input" type="email" class="form-control" id="exampleFormControlInput1"
+                        placeholder="name@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">What do you need help with??</label>
+                    <textarea id="help_daddy" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+
+                <button id="submit_button" onclick="submitPlease()" class="btn btn-primary">Submit</button>
+            </div>
         </div>
-
         <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
 
             <p id="top_meme" class="font-weight-bold" style="display: none;">Bold text.</p>
@@ -98,6 +90,7 @@
 
         </div>
 
+        </div>
         <footer id="footer" class="footer">
             <div class="container">
                 <span class="text-muted">By<a target="_blank"
@@ -106,7 +99,6 @@
                 <p></p>
             </div>
         </footer>
-    </div>
 
     <!-- jQuery 3.5.1 -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
