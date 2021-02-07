@@ -3,11 +3,7 @@ clippyAgent = null;
 document.querySelector('form').addEventListener('submit', handleSubmitForm);
 document.getElementById('taskList').addEventListener('click', handleCheckOrDelete);
 // document.getElementById('clearAll').addEventListener('click', handleClear);
-// document.querySelector('checkBtn').addEventListener('mouseover', moveAway);
-
-window.addEventListener('load', (event) => {
-    initializeClippy();
-});
+window.addEventListener('load', (event) => {initializeClippy();});
 
 function initializeClippy(){
     clippy.load('Clippy', function (agent) {
@@ -29,44 +25,30 @@ function handleSubmitForm(e) {
 }
 
 function addTask(taskVal) {
-    // let ul = document.querySelector('taskList');
     let ul = document.getElementById('taskList');
     let li = document.createElement('li');
     li.id = 'taskIdListItem';
     li.className = 'taskItem';
-    // li.innerHTML = `
-    //     <span class="task-item">${taskVal}</span>
-    //     <button name="checkButton" id="checkBtn"> <i class="fas fa-check-square"></i> </button>
-    //     <button name="deleteButton" id="deleteBtn"> <i class="fas fa-trash"></i> </button>
-    // `
+
     trollButton = getTroll();
     li.innerHTML = `
         <span class="task-item">${taskVal}</span>
-        <button name="${trollButton.name}" id=${trollButton.id}> <i class="fas fa-check-square"></i> </button>
-        <button name="deleteButton" id="deleteBtn"> <i class="fas fa-trash"></i> </button>
+        <button name="${trollButton.name}" id=${trollButton.id} class="clearBackground"> <i class="fas fa-check-square"></i> </button>
+        <button name="deleteButton" id="deleteBtn" class="clearBackground"> <i class="fas fa-trash"></i> </button>
     `
     li.classList.add('task-list-item');
-    
-    // let length = getRandomInt(3) + 1;
-    // console.log(length);
-    
+
     ul.appendChild(li);
 
-    // for(i = 0; i < length; i++) {
-    //     let item = document.getElementById('taskIdListItem');
-    //     console.log(item);
-    //     var cln = item.cloneNode(true);
-    //     ul.appendChild(cln);
-    // }
     clippyAnimations('SendMail', 'You added the todo');
 }
 
 function getTroll(){
     allTrolls = [
-        {name: "movingButton", id: "movingBtn", checkable: false},
-        {name: "blockButton", id: "blockBtn", checkable: false},
+        // {name: "movingButton", id: "movingBtn", checkable: false},
+        // {name: "blockButton", id: "blockBtn", checkable: false},
         {name: "spongebobButton", id: "spongebobBtn", checkable: true},
-        {name: "hydraButton", id: "hydraBtn", checkable: true}
+        // {name: "hydraButton", id: "hydraBtn", checkable: true}
     ]
     return allTrolls[Math.floor(Math.random() * allTrolls.length)]
 }
@@ -128,7 +110,14 @@ $(document).on('mouseover', '#blockBtn', function(){
 });
 
 $(document).on('mouseover', '#spongebobBtn', function(){
-    $("body").css("background-image", "url('./resources/images/spongebob.jpg')");
+    $('body').fadeIn('slow', 5000, function()
+    {
+        $(this).css("background-image", "url('./resources/images/spongebob.jpg')");
+    }).fadeTo('slow', 5000);
+    $('body').fadeIn('slow', 5000, function()
+    {
+        $(this).css("background-image", "url('./resources/images/2.jpg')");
+    }).fadeTo('slow', 5000);
 });
 
 $(document).on('click', '.clippy', function(){
@@ -152,4 +141,10 @@ function clearAll() {
 function clippyAnimations(animation, text){
     clippyAgent.play(animation);
     clippyAgent.speak(text);
+}
+
+function handleOverflow(e) {
+    $("taskList").mCustomScrollbar({
+        theme: "rounded-dark"
+    });
 }
