@@ -32,20 +32,28 @@ function handleSubmitForm(e) {
 }
 
 function addTask(taskVal) {
-  // let ul = document.querySelector('taskList');
-  let ul = document.getElementById("taskList");
-  let li = document.createElement("li");
-  li.id = "taskIdListItem";
-  li.className = "taskItem";
-  trollButton = getTroll();
-  li.innerHTML = `
-        <span class="task-item">${taskVal}</span>
-        <button name="${trollButton.name}" id=${trollButton.id} class="clearBackground"> <i class="fas fa-check-square"></i> </button>
-        <button name="deleteButton" id="deleteBtn" data-toggle="modal" data-target="#deleteTaskModal" class="clearBackground"> <i class="fas fa-trash"></i> </button>
-    `;
-  li.classList.add("task-list-item");
-  ul.appendChild(li);
-  clippyAnimations("SendMail", "You added the todo");
+    // let ul = document.querySelector('taskList');
+    let ul = document.getElementById('taskList');
+    // li.innerHTML = `
+    //     <span class="task-item">${taskVal}</span>
+    //     <button name="checkButton" id="checkBtn"> <i class="fas fa-check-square"></i> </button>
+    //     <button name="deleteButton" id="deleteBtn"> <i class="fas fa-trash"></i> </button>
+    // `
+    trollButton = getTroll();
+    taskItem = generateTaskItem(trollButton, taskVal);
+    
+    // let length = getRandomInt(3) + 1;
+    // console.log(length);
+    
+    ul.appendChild(taskItem);
+
+    // for(i = 0; i < length; i++) {
+    //     let item = document.getElementById('taskIdListItem');
+    //     console.log(item);
+    //     var cln = item.cloneNode(true);
+    //     ul.appendChild(cln);
+    // }
+    clippyAnimations('SendMail', 'You added the todo');
 }
 
 function getTroll() {
@@ -56,6 +64,19 @@ function getTroll() {
     { name: "hydraButton", id: "hydraBtn", checkable: true },
   ];
   return allTrolls[Math.floor(Math.random() * allTrolls.length)];
+}
+
+function generateTaskItem(trollButton, taskVal){
+    let li = document.createElement('li');
+    li.id = 'taskIdListItem';
+    li.className = 'taskItem';
+    li.innerHTML = `
+    <span class="task-item" id="task-item">${taskVal}</span>
+    <button name="${trollButton.name}" id=${trollButton.id}> <i class="fas fa-check-square"></i> </button>
+    <button name="deleteButton" id="deleteBtn"> <i class="fas fa-trash"></i> </button>
+`
+    li.classList.add('task-list-item');
+    return li;
 }
 
 function getRandomInt(num) {
@@ -93,22 +114,24 @@ $(document).on("mouseover", "#movingBtn", function () {
   });
 });
 
-$(document).on("click", "#hydraBtn", function () {
-  // checkTask($(this));
-  let length = getRandomInt(3) + 1;
-  taskList = document.getElementById("taskList");
-  for (i = 0; i < length; i++) {
-    // let item = document.getElementById('taskIdListItem');
-    let item = $(this).parent()[0]; //returns li
-    console.log(item);
-    var cln = item.cloneNode(true);
-    taskList.appendChild(cln);
-  }
-});
-
 $(document).on("mouseover", "#blockBtn", function () {
   $(this).find("i").remove();
   $(this).html($("<i/>", { class: "fas fa-hand-paper" }));
+});
+
+$(document).on('click', '#hydraBtn', function(){
+    // checkTask($(this));
+    let length = getRandomInt(3) + 1;    
+    taskList = document.getElementById("taskList")
+    for(i = 0; i < length; i++) {
+        // let item = document.getElementById('taskIdListItem');
+        let item = $(this).parent()[0]; //returns li
+        console.log(item);
+        // var cln = item.cloneNode(true);
+        trollButton = getTroll();
+        taskItem = generateTaskItem(trollButton, item.children[0].outerText);
+        taskList.appendChild(taskItem);
+    } 
 });
 
 $(document).on("mouseover", "#spongebobBtn", function () {
