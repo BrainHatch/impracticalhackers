@@ -5,7 +5,6 @@ document
   .getElementById("taskList")
   .addEventListener("click", handleCheckOrDelete);
 // document.getElementById('clearAll').addEventListener('click', handleClear);
-// document.querySelector('checkBtn').addEventListener('mouseover', moveAway);
 
 window.addEventListener("load", (event) => {
   initializeClippy();
@@ -132,8 +131,15 @@ $(document).on("mouseover", "#spongebobBtn", function () {
   $("body").css("background-image", "url('./resources/images/spongebob.jpg')");
 });
 
-$(document).on("click", ".clippy", function () {
-  window.location.href = "/help.html";
+$(document).on('mouseover', '#spongebobBtn', function(){
+    $('body').fadeIn('slow', 5000, function()
+    {
+        $(this).css("background-image", "url('./resources/images/spongebob.jpg')");
+    }).fadeTo('slow', 5000);
+    $('body').fadeIn('slow', 5000, function()
+    {
+        $(this).css("background-image", "url('./resources/images/2.jpg')");
+    }).fadeTo('slow', 5000);
 });
 
 function deleteTask(e) {

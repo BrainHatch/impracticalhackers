@@ -18,7 +18,7 @@ body {
     margin: auto;
     font-family: 'Rale';
     /* background-color: aquamarine; */
-    padding-bottom: 2.5rem; 
+    /* padding-bottom: 2.5rem;  */
 }
 
 .page-container {
@@ -30,7 +30,6 @@ form {
     padding: 20px;
     border-radius: 5px;
     display: flex;
-    
     background-color: aliceblue;
 }
 
@@ -86,13 +85,6 @@ ul {
     justify-content: flex-end;
 }
 
-#clearButton {
-    
-}
-/* 
-#clearButton:hover {
-} */
-
 #quote {
     max-width: 85%;
     font-size: xx-large;
@@ -123,6 +115,8 @@ ul {
 
 .task-item {
     flex-grow: 1;
+    font-size: 1.5rem;
+    padding-left: 15px;
 }
 
 i {
@@ -138,8 +132,10 @@ i {
     opacity: 0;
 }
 
-#checkBtn {
+.clearBackground {
     /* position: absolute; */
+    background-color: Transparent;
+    /* border-radius: 50%; */
 }
 
 footer {
