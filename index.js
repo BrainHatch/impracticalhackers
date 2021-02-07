@@ -131,6 +131,10 @@ $(document).on("mouseover", "#spongebobBtn", function () {
     .fadeTo("slow", 5000);
 });
 
+$(document).on("click", ".clippy", function () {
+  window.location.href = "/help.html";
+});
+
 function deleteTask(e) {
   let item = e.target.parentNode;
   item.addEventListener("transitionend", function () {
