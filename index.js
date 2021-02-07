@@ -150,7 +150,7 @@ $(document).on("mouseover", "#spongebobBtn", function () {
     .fadeTo("slow", 5000);
   $("body")
     .fadeIn("slow", 5000, function () {
-      $(this).css("background-image", "url('./resources/images/2.jpg')");
+      $(this).css("background-image", "url('./resources/images/spongebob.jpg')");
     })
     .fadeTo("slow", 5000);
 });
