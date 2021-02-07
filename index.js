@@ -115,15 +115,20 @@ $(document).on("mouseover", "#spongebobBtn", function () {
   $("body").css("background-image", "url('./resources/images/spongebob.jpg')");
 });
 
-$(document).on('mouseover', '#spongebobBtn', function(){
-    $('body').fadeIn('slow', 5000, function()
-    {
-        $(this).css("background-image", "url('./resources/images/spongebob.jpg')");
-    }).fadeTo('slow', 5000);
-    $('body').fadeIn('slow', 5000, function()
-    {
-        $(this).css("background-image", "url('./resources/images/2.jpg')");
-    }).fadeTo('slow', 5000);
+$(document).on("mouseover", "#spongebobBtn", function () {
+  $("body")
+    .fadeIn("slow", 5000, function () {
+      $(this).css(
+        "background-image",
+        "url('./resources/images/spongebob.jpg')"
+      );
+    })
+    .fadeTo("slow", 5000);
+  $("body")
+    .fadeIn("slow", 5000, function () {
+      $(this).css("background-image", "url('./resources/images/2.jpg')");
+    })
+    .fadeTo("slow", 5000);
 });
 
 function deleteTask(e) {
@@ -136,7 +141,8 @@ function deleteTask(e) {
 }
 
 function clearAll() {
-  document.querySelector("ul").innerHTML = "";
+  document.getElementById("taskList").innerHTML = "";
+
   clippyAnimations("Print", "You cleared the todos");
 }
 
