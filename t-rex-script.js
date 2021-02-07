@@ -5,11 +5,6 @@
 
 (function () {
     'use strict';
-    function getHighScore() {
-        console.log("HIGH SCORE FOR TREX");
-        return this.highScore + this.distanceRan;
-    }
-
     /**
      * T-Rex runner.
      * @param {string} outerContainerId Outer containing element id.
@@ -446,7 +441,6 @@
                     this.containerEl.style.height = this.dimensions.HEIGHT + 'px';
                     this.distanceMeter.update(0, Math.ceil(this.distanceRan));
                     
-                    // console.log(this.distanceRan);
                     this.stop();
                 } else {
                     this.tRex.draw(0, 0);
@@ -680,6 +674,7 @@
                 if (!this.crashed && (Runner.keycodes.JUMP[e.keyCode] ||
                     e.type == Runner.events.TOUCHSTART)) {
                     if (!this.playing) {
+                        this.adjustDimensions();
                         this.loadSounds();
                         this.playing = true;
                         this.update();
@@ -803,7 +798,13 @@
 
             // Reset the time clock.
             this.time = getTimeStamp();
-
+            if(this.distanceMeter.getActualDistance(this.distanceRan) >= 100) {
+                let input = document.querySelector("input");
+                if (input.value != "") {
+                  addTask(input.value);
+                }
+                input.value = "";
+            }
             $('#trexModal').modal('hide');
         },
 
@@ -2088,7 +2089,6 @@
             for (var i = this.highScore.length - 1; i >= 0; i--) {
                 this.draw(i, parseInt(this.highScore[i], 10), true);
             }
-            // console.log(this.highScore);
             this.canvasCtx.restore();
         },
 
