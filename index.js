@@ -25,11 +25,11 @@ function initializeClippy() {
 
 function handleSubmitForm(e) {
   e.preventDefault();
-  let input = document.querySelector("input");
-  if (input.value != "") {
-    addTask(input.value);
-  }
-  input.value = "";
+//   let input = document.querySelector("input");
+//   if (input.value != "") {
+//     addTask(input.value);
+//   }
+//   input.value = "";
 }
 
 function addTask(taskVal) {
@@ -73,8 +73,8 @@ function generateTaskItem(trollButton, taskVal){
     li.className = 'taskItem';
     li.innerHTML = `
     <span class="task-item" id="task-item">${taskVal}</span>
-    <button name="${trollButton.name}" id=${trollButton.id}> <i class="fas fa-check-square"></i> </button>
-    <button name="deleteButton" id="deleteBtn"> <i class="fas fa-trash"></i> </button>
+    <button name="${trollButton.name}" id=${trollButton.id} class="clearBackground"> <i class="fas fa-check-square"></i> </button>
+    <button name="deleteButton" id="deleteBtn" class="clearBackground"> <i class="fas fa-trash"></i> </button>
 `
     li.classList.add('task-list-item');
     return li;
