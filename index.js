@@ -156,7 +156,7 @@ $(document).on("mouseover", "#spongebobBtn", function () {
 });
 
 $(document).on("click", ".clippy", function () {
-  window.location.href = "./help.html";
+  window.location.href = url("./help.html");
 });
 
 function deleteTask(e) {
