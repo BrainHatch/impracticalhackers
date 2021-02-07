@@ -133,9 +133,7 @@ i {
 }
 
 .clearBackground {
-    /* position: absolute; */
     background-color: Transparent;
-    /* border-radius: 50%; */
 }
 
 footer {
